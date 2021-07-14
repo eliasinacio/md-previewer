@@ -1,10 +1,18 @@
-import './App.css';
+import React from 'react';
 
-function App() {
+import GlobalStyle from './main-styles/global';
+import Editor from './Components/Editor'
+import Preview from './Components/Preview'
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      hello world
-    </div>
+    <>
+      <GlobalStyle />
+      <div className="App">
+        <Editor />
+        <Preview />
+      </div>
+    </>
   );
 }
 
