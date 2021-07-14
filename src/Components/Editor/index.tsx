@@ -1,13 +1,19 @@
-import React from "react";
+import React, { ChangeEventHandler } from "react";
+
 import { Container } from "./style";
 
-const Editor: React.FC = () => {
+interface EditorProps { 
+  value: string
+  onChange: ChangeEventHandler<HTMLTextAreaElement>
+}
+
+const Editor: React.FC<EditorProps> = (props) => {
   return (
     <Container>
       <textarea 
         id='editor'
-        value={'hello world'}
-        onChange={() => console.log('a')}	
+        value={props.value}
+        onChange={props.onChange}	
       />
     </Container>
   )

@@ -1,11 +1,19 @@
 import React from 'react';
 import { Container } from './style';
 
-const Preview: React.FC = () => {
+import marked from 'marked';
+
+interface PreviewProps { markdown: string }
+
+const renderer = new marked.Renderer();
+
+const Preview: React.FC<PreviewProps> = (props) => {
   return (
-    <Container>
-      
-    </Container>
+    <Container 
+    dangerouslySetInnerHTML={{
+      __html: marked(props.markdown , { renderer: renderer })
+    }}
+    />
   );
 }
 
